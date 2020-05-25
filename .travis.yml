@@ -1,18 +1,24 @@
 language: bash
-os: linux-ppc64le
+arch: ppc64le
 addons:
   apt:
     packages:
     - cargo
 rust: nightly
+before_script:
+- curl https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+- source ~/.nvm/nvm.sh
+- nvm install 10
 script:
 - sh ./build/build_ppc.sh
 deploy:
   provider: releases
   file_glob: true
   api_key:
-    secure: e0/PfGa6XKuMBkqlymKrHY0W/vfzmu0LA8e2qz7mpS7whTCGhEKKgxYS+XIe5NUImOb3A/HZbSs1g8IalUvYBmQSDe2qs3QzZUA6JPb/L/dtxbQ1ZMST2jLAz30juQ1cgq1gYPBf/IeABqd9fwiGmqox1lHzeIyTrZMe3sOK5L35vhKLXMW7llQ1VMuWk7yVfRLOVfhdiKb67V5JhL8lwz/CfCwN+4uZUKUFC5Kl3Yu+KVcnb76HVYZhByTbgj/tPi/vEuCc55Afsau77Evja0e4S4iJohGVs+LRpgM3uWw6WZo6Oy8Rz8CAN3cZkmWchGSU+FnQLeM8vhp4ctq6J47soMdysozZizikQDABsT1LGgkNmM+j4zY6dztSW/64KkUJLfuJQEwcYtkKXonn84EklM963dbokbHpOtKhpwF2kclfuk+NImQR40u0y/QBYBVxcnW9PgIv1yWzuQ7v2r63d3ZgsyxzzkvHlNEZzPHPFJMOE2y2AhXHCn/7Snx6bysxXsW43syr1JdSgLyDz4ncWovxzt0wStiInraWRf0ihnUyQ5535xAPhzP8Jhv48bFu/Ol1SSABCV1RznLuMqV+/F3GPCUGqtqyvIL7GiDZCgZyHK3jZto6LyoLNg/Naes6H8crIT+wfVoZs3nsJG3PMvHNnxgtBZmUKIBWhq4=
+    secure: XnzQ7WWlwrJWeoQb6xQUNWh/XLw6TljTdT5vAEkiYwoeqhAFS6LXrSd5VCVs3KOausmcvtGbn2p1TX4RXqSf/hTP82acxNs2uEcsa8yHYE8uNuX3ygu32uDFfupFFO/ZhvgJbAV3AOmsa5f80THYC2Wb0kbB7/LO0Ur45YRBpuw2nd2R8aS4LmVKMsKqg6AfDCXRxjqfB6iTgX/91Bl0TyAX14M0ckn40Y809WcEIDBx1TErmI55ulSthKWhu5j3MYQfmktOiqUOemKf4GEfb45GKWeBsthXD+gYX38W1E3ZN/ohtSgV1r9Z9hh9ZRnQvqnDmifHST293jOJ15J/Wp7+8WpuPQ4rV87b8wyNryQ74tjyAmN/Tcw7NxEpesAb+AWJzNW5R3AH9CgoHI8rq6fpWqPPW42Vhv+31XLK06Aocg9nFNXdLqjze6xoawod/VefAcLPTV0FXgZuVllB/zkOa5YWUCXewubH00o+DB7KynRDdeitJmeRo2xe/JPwpPsZkNrv/2bMlLwByunexb9kFExC861ETXY1NNrMe1YRbWCy/0+tMpYoqwPFxZq8xlU+ogEB6z5l/kqm8DsSKuvVdBwll6Rbg2puDn0BAK9dYmXBAHgPP+7uOTPlOssLzMZuYJ8SVyyiFfqPav7yf0H1t34yGZr1/K6aozi/Jd4=
   file: "/home/travis/ripgrep/*.tar.gz"
   on:
-    repo: microsoft/ripgrep-prebuilt
+    repo: Siddhesh-Ghadi/ripgrep-prebuilt
     tags: true
+
+
