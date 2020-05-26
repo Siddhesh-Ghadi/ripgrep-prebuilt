@@ -16,3 +16,4 @@ cargo build --release --target=$TARGET
 strip ./target/${TARGET}/release/rg
 tar czvf "ripgrep-${THIS_TAG}-s390x.tar.gz" -C ./target/${TARGET}/release/ rg
 target/${TARGET}/release/rg --version
+target/${TARGET}/release/rg CLA README.md
