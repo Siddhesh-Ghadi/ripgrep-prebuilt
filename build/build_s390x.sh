@@ -2,8 +2,8 @@
 
 set -ex
 
-REPO=$(node -p "require(./config.json).ripgrepRepo")
-TREEISH=$(node -p "require(./config.json).ripgrepTag")
+REPO=$(node -p "require('./config.json').ripgrepRepo")
+TREEISH=$(node -p "require('./config.json').ripgrepTag")
 THIS_TAG=`git tag -l --contains HEAD`
 
 cd ~
