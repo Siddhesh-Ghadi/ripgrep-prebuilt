@@ -11,7 +11,7 @@ before_script:
 - nvm install 10
 script:
 - rustc --print target-list
-- apt-cache search pcre2
+- apt-get install libpcre2-16-0 libpcre2-32-0 libpcre2-8-0 libpcre2-dbg libpcre2-dev libpcre2-posix0 pcre2-utils -y
 - #sh ./build/build_s390x.sh
 deploy:
   provider: releases
