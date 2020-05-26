@@ -11,8 +11,8 @@ git clone https://github.com/${REPO}.git
 cd ripgrep
 git checkout $TREEISH
 
-TARGET="powerpc64le-unknown-linux-gnu"
-cargo build --release --target=$TARGET --features 'pcre2'
+TARGET="s390x-unknown-linux-gnu"
+cargo build --release --target=$TARGET
 strip ./target/${TARGET}/release/rg
-tar czvf "ripgrep-${THIS_TAG}-ppc64le.tar.gz" -C ./target/${TARGET}/release/ rg
+tar czvf "ripgrep-${THIS_TAG}-s390x.tar.gz" -C ./target/${TARGET}/release/ rg
 target/${TARGET}/release/rg --version
