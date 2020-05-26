@@ -1,5 +1,4 @@
 language: bash
-arch: s390x
 addons:
   apt:
     packages:
@@ -9,10 +8,12 @@ before_script:
 - curl https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 - source ~/.nvm/nvm.sh
 - nvm install 10
-script:
-- rustc --print target-list
-- sudo apt-get install libpcre2-16-0 libpcre2-32-0 libpcre2-8-0 libpcre2-dbg libpcre2-dev libpcre2-posix0 pcre2-utils -y
-- #sh ./build/build_s390x.sh
+jobs:
+  include:
+    - arch: ppc64le
+      script: sh ./build/build_ppc.sh
+    - arch: s390x
+      script: sh ./build/build_s390x.sh
 deploy:
   provider: releases
   file_glob: true
