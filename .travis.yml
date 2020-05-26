@@ -10,7 +10,9 @@ before_script:
 - source ~/.nvm/nvm.sh
 - nvm install 10
 script:
-- sh ./build/build_s390x.sh
+- rustc --print target-list
+- apt-cache search pcre2
+- #sh ./build/build_s390x.sh
 deploy:
   provider: releases
   file_glob: true
